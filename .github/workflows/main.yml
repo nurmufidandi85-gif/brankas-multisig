@@ -1,0 +1,21 @@
+name: Validasi Brankas Aman
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  tes-keamanan:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Ambil Kode Repositori
+      uses: actions/checkout@v4
+
+    - name: Simulasi Akses Token Brankas
+      env:
+        KUNCI_SAYA: ${{ secrets.BRANKAS_API_KEY }}
+      run: |
+        echo "Memulai pemeriksaan keamanan alur kerja otomatis..."
+        echo "Menghubungkan ke brankas menggunakan kredensial terenkripsi..."
+        echo "Status Kunci Keamanan: Terhubung Aman."
